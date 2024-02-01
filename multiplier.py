@@ -8,7 +8,7 @@ class MultiplierCircuit(CircuitBehaviour):
         super().__init__()
         # Create an instance of the AdderCircuit class to access its addition method
         """
-        This function simulates addition. It adds the multiplicand to itself.
+        This function simulates addition. It adds the multiplicand to the product.
         Here repeated addition is done in order to do the multiplication.
         """
 
