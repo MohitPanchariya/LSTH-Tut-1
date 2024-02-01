@@ -32,6 +32,7 @@ class MultiplierCircuit(CircuitBehaviour):
             bit = multiplier & 1
             if bit:
                 # If the current bit of multiplier is 1, add the shifted multiplicand to the result
+                # Use the fire method from the AdderCircuit class for addition
                 product = self.adder_circuit.fire(product, multiplicand << shift)
 
             # Right shift multiplier for next iteration
