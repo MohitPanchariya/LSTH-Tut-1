@@ -1,6 +1,5 @@
 from circuit import CircuitBehaviour
-from sub import SubCircuit
-
+from wired_circuits.subtractor import SubtractorCircuit
 
 class DividerCircuit(CircuitBehaviour):
 
@@ -12,7 +11,7 @@ class DividerCircuit(CircuitBehaviour):
         Here repeated subtraction is done in order to do the division.
         """
 
-        self.sub_circuit = SubCircuit()
+        self.sub_circuit = SubtractorCircuit()
 
     def fire(self, dividend: int, divisor: int) -> int:
         """

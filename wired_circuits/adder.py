@@ -1,7 +1,6 @@
 from circuit import CircuitBehaviour
 
-class AdderCircuit(CircuitBehaviour):    
-
+class AdderCircuit(CircuitBehaviour):
 
     def __fullAdder(self, a: int, b: int, cin: int):
         '''

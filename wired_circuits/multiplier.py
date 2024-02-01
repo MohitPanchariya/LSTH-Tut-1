@@ -1,6 +1,5 @@
 from circuit import CircuitBehaviour
-from adder import AdderCircuit
-
+from wired_circuits.adder import AdderCircuit
 
 class MultiplierCircuit(CircuitBehaviour):    
 
@@ -12,7 +11,7 @@ class MultiplierCircuit(CircuitBehaviour):
         Here repeated addition is done in order to do the multiplication.
         """
 
-        self.adder_circuit = AdderCircuit()
+        self.add_circuit = AdderCircuit()
 
     def fire(self, multiplicand: int, multiplier: int) -> int:
         """
@@ -33,7 +32,7 @@ class MultiplierCircuit(CircuitBehaviour):
             if bit:
                 # If the current bit of multiplier is 1, add the shifted multiplicand to the result
                 # Use the fire method from the AdderCircuit class for addition
-                product = self.adder_circuit.fire(product, multiplicand << shift)
+                product = self.add_circuit.fire(product, multiplicand << shift)
 
             # Right shift multiplier for next iteration
             multiplier >>= 1
