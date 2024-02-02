@@ -1,30 +1,39 @@
-from plugboard import Plugboard
 from calculator import Calculator
-
-# import any of the circuits - Adder, Subtractor, Multiplier, Divider
-
-from wired_circuits.adder import AdderCircuit as Circuit
-# from wired_circuits.subtractor import SubtractorCircuit as Circuit
-# from wired_circuits.multiplier import MultiplierCircuit as Circuit
-# from wired_circuits.divider import DividerCircuit as Circuit
+from calculator_builder import CalculatorBuilder
 
 def main():
 
-    # instantiate the circuit
-    circuitInstance = Circuit()
+    # Greet the user
+    print("Welcome to the ENIAC Simulator")
+    
+    # Create a calculator instance
+    calculator = Calculator()
 
-    # instantiate a plugboard with the adder circuit
-    plugboardInstance = Plugboard(circuitInstance)
+    # Prompt the user for circuit type
+    circuit_type = input("Please enter the circuit type: ")
 
-    # specify the path for instructions
-    instructionsPath = "./input.scl"
+    # Prompt the user to set input accumulators
+    operand1 = input("Please set the value for operand 1: ")
+    operand2 = input("Please set the value for operand 2: ")
 
-    # use the plugboard instance as the calculator
-    calculator = Calculator(plugboardInstance)
-
+    # Convert operand1 and operand2 to integers
     try:
-        calculator.run(instructionsPath)
+        operand1 = int(operand1)
+        operand2 = int(operand2)
+    except ValueError:
+        print("Please enter valid integer values for operands.")
+
+    # Build the calculator and run it
+    try:
+        result = CalculatorBuilder(calculator).build_circuit(circuit_type).build_plugboard().build() \
+                .set_input(operand1, operand2) \
+                .run() \
+                .get_output()
+        
+        print(f'Final result: {result}')
+        return 0
     except Exception as e:
         print(e)
+        return -1
 
 main()
