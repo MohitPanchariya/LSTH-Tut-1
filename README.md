@@ -13,6 +13,8 @@ This project is an ENIAC simulator that allows you to perform simple mathematica
 1. Run inside the parent directory: `python master_programmer.py`
 2. Define the requested operation inside the 'punch_card.scl' file
    Format: `ACC1 <first_operand> ACC2 <second_operand> CIRCUIT <circuit_name>` 
+3. Specify the path to the punch card file when prompted
+   Sample: `./punch_card.scl`
 
 ## Creating Custom Circuits
 
